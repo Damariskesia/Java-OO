@@ -20,6 +20,10 @@ public class ProgramDois {
 
         Product product = new Product(name, price);
 
+       //product.name = "computer"; // This is not possible because the attribute is private
+
+        //product.setName("Computer");
+
         System.out.println();
         System.out.println("Product data: " + product);
         System.out.println();
