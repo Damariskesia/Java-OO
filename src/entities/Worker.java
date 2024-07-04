@@ -1,15 +1,12 @@
 package entities;
 
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
+import java.text.SimpleDateFormat;
 
 import entities.enums.WorkerLevel;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 
@@ -76,14 +73,17 @@ public class Worker {
         contracts.remove(contract);
     }
 
-    public Double income(int year, int month){
+    public Double income(int year, int month) {
         double sum = baseSalary;
-        Calendar cal = Calendar.getInstance();
-        for(HourContract c : contracts){
-            cal.setTime(c.getDate());
-            int c_year = cal.get(Calendar.YEAR);
-            int c_month = 1 + cal.get(Calendar.MONTH);
-            if(year == c_year && month == c_month){
+        SimpleDateFormat sdfYear = new SimpleDateFormat("yyyy");
+        SimpleDateFormat sdfMonth = new SimpleDateFormat("MM");
+
+        for (HourContract c : contracts) {
+            Date contractDate = c.getDate();
+            int c_year = Integer.parseInt(sdfYear.format(contractDate));
+            int c_month = Integer.parseInt(sdfMonth.format(contractDate));
+
+            if (year == c_year && month == c_month) {
                 sum += c.totalValue();
             }
         }
