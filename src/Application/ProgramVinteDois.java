@@ -38,6 +38,18 @@ public class ProgramVinteDois {
             System.out.println("Update!");
         }
 
+        AccountDois acc6 = new AccountDois(1005, "Alex", 1000.0);
+        acc6.withdraw(200.0);
+        System.out.println(acc6.getBalance());
+
+        AccountDois acc7 = new SavingAccount(1006, "Maria", 1000.0, 0.01);
+        acc7.withdraw(200.0);
+        System.out.println(acc7.getBalance());
+
+        AccountDois acc8 = new BusinessAccount(1007, "Bob", 1000.0, 500.0);
+        acc8.withdraw(200.0);
+        System.out.println(acc8.getBalance());
+
         sc.close();
     }
 }

@@ -24,4 +24,9 @@ public class SavingAccount extends AccountDois{
         balance += balance * interestRate;
     }
 
+    @Override
+    public void withdraw(double amount){
+        balance -= amount;
+    }
+
 }
