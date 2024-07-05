@@ -50,6 +50,17 @@ public class ProgramVinteDois {
         acc8.withdraw(200.0);
         System.out.println(acc8.getBalance());
 
+        //polimorfismo
+
+        AccountDois x = new AccountDois(1023, "Alex", 1000.0);
+        AccountDois y = new SavingAccount(1024, "Maria", 1000.0, 0.01);
+
+        x.withdraw(50.0);
+        y.withdraw(50.0);
+
+        System.out.println("X:"+ x.getBalance());
+        System.out.println("Y:" + y.getBalance());
+
         sc.close();
     }
 }
